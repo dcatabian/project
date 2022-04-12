@@ -12,7 +12,12 @@ class getLogin(APIView):
         serializer = loginSerializer(credentials, many = True)
         return Response(serializer.data)
 
-class pr(APIView):
-    #def get
+class allpurchaseReuqest(APIView):
+    def get(self, request, format = None):
+        purchaseCredentials = allpurchaseReuqest.objects.all()
+        serializer = allpurchaseReuqest(purchaseCredentials, many =True)
+        return Response(serializer.data)
 
-    #def put
+
+    # def put
+
