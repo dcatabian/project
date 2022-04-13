@@ -1,9 +1,9 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import loginSerializer
+from .serializers import invoiceSerializer, itemSerializer, loginSerializer
 from .serializers import prSerializer
-from .models import LoginInfo
+from .models import Invoice, LoginInfo, PurchaseRequest, Item
 from db.api import serializers
 
 # Create your views here.
@@ -18,8 +18,8 @@ class getLogin(APIView):
 # Endpoint 2 and endpoint 8
 class allpurchaseReuqest(APIView):
     def get(self, request, format = None):
-        purchaseCredentials = allpurchaseReuqest.objects.all()
-        serializer = allpurchaseReuqest(purchaseCredentials, many =True)
+        purchaseCredentials = PurchaseRequest.objects.all()
+        serializer = prSerializer(purchaseCredentials, many =True)
         return Response(serializer.data)
 
     def post(self, request, format = None):
@@ -33,17 +33,58 @@ class allpurchaseReuqest(APIView):
 
     # def put
 
-# This is for endpoint 5
+# This is for endpoint 3
+
+class userPurchaseRequest(APIView):
+    def get(self, request, pk, format = None):
+        user = PurchaseRequest.objects.get(pk=pk)
+        serializer = prSerializer(user)
+        return Response(serializer.data)
+
+# This is for endpoint 4
+
+# class UserPurchaseRequestID(APIView):
+#     def get(self, )
+
+
+# This is for endpoint 5 and endpoint 9
 class allInvoices(APIView):
     def get(self, request, format = None):
-        invoiceCredentials = allInvoices.objects.all()
-        serializer = allInvoices(invoiceCredentials, many =True)
+        invoiceCredentials = Invoice.objects.all()
+        serializer = invoiceSerializer(invoiceCredentials, many =True)
         return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = invoiceSerializer (data=request.data)
+        if serializer.is_valid ( ):
+            serializer.save ( )
+            return Response (serializer.data, status=status.HTTP_201_CREATED)
+        return Response (serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 # This is for endpoint 6
 class allItems(APIView):
     def get(self, request, format = None):
-        itemCredentials = allItems.objects.all()
-        serializer = allItems(itemCredentials, many =True)
+        itemCredentials = Item.objects.all()
+        serializer = itemSerializer(itemCredentials, many =True)
         return Response(serializer.data)
+
+# This is for endpoint 10
+
+class submitItem(APIView):
+    def post(self, request, format=None):
+        serializer = itemSerializer (data=request.data)
+        if serializer.is_valid ( ):
+            serializer.save ( )
+            return Response (serializer.data, status=status.HTTP_201_CREATED)
+        return Response (serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# This is for endpoint 15
+
+class deletePurchaseRequest(APIView):
+    def delete(self, request, pk, format=None):
+        requests = PurchaseRequest.objects.filter (pk=pk)
+        requests.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
