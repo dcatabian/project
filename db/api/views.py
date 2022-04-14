@@ -2,7 +2,7 @@ from django.http import Http404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import invoiceSerializer, itemSerializer, loginSerializer, prSerializer
+from .serializers import invoiceSerializer, itemSerializer, loginSerializer, prSerializer, memberSerializer
 from .models import Invoice, LoginInfo, Member, PurchaseRequest, Item
 #from db.api import serializers
 
@@ -34,9 +34,9 @@ class allpurchaseRequest(APIView):
 
 class userPurchaseRequest(APIView):
     def get(self, request, u, format = None):
-        user = Member.objects.get(pk=u)
-        theirs = PurchaseRequest.objects.filter(sub_id = user)
-        serializer = prSerializer(theirs)
+        #user = Member.objects.get(pk=u)
+        theirs = PurchaseRequest.objects.filter(sub_id__pk=u)
+        serializer = prSerializer(theirs, many = True)
         return Response(serializer.data)
 
 # This is for endpoint 4

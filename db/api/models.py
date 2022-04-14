@@ -24,11 +24,11 @@ class LoginInfo(models.Model):
 
 class PurchaseRequest(models.Model):
     p_id = models.AutoField(primary_key=True)
-    sub_id = models.ForeignKey(Member,
+    sub_id = models.ForeignKey('Member',
         null = True, blank = True,
         on_delete = models.SET_NULL,
         related_name = 'Submitter_ID')
-    app_id = models.ForeignKey(Member,
+    app_id = models.ForeignKey('Member',
         null = True, blank = True,
         on_delete = models.SET_NULL,
         related_name = 'Approver_ID')
