@@ -7,5 +7,6 @@ urlpatterns = [
     path('pr', views.allpurchaseRequest.as_view()),
     path('pr/u/<int:u>', views.userPurchaseRequest.as_view()),
     path('pr/pk/<int:pk>', views.idPurchaseRequest.as_view()),
-    #path('')
+    path('it', views.allItems.as_view()),
+    path('iv', views.allInvoices.as_view()),
 ]
