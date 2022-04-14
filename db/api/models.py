@@ -74,7 +74,7 @@ class Item(models.Model):
     p_by = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.it_id
+        return self.name
 
 
 
