@@ -30,9 +30,6 @@ class allpurchaseRequest(APIView):
             return Response (serializer.data, status=status.HTTP_201_CREATED)
         return Response (serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-
-    # def put
 # endpoint 3
 
 class userPurchaseRequest(APIView):
@@ -44,10 +41,11 @@ class userPurchaseRequest(APIView):
 
 # This is for endpoint 4
 
-# class UserPurchaseRequestID(APIView):
-#     def get(self, request, pk, format = None):
-
- 
+class idPurchaseRequest(APIView):
+    def get(self, request, pk, format = None):
+        specific = PurchaseRequest.objects.get(pk=pk)
+        serializer = prSerializer(specific)
+        return Response(serializer.data)
 
 # This is for endpoint 5 and endpoint 9
 class allInvoices(APIView):
