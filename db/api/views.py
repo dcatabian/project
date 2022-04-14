@@ -44,7 +44,8 @@ class userPurchaseRequest(APIView):
 # This is for endpoint 4
 
 # class UserPurchaseRequestID(APIView):
-#     def get(self, )
+#     def get(self, request, pk, format = None):
+
 
 
 # This is for endpoint 5 and endpoint 9
