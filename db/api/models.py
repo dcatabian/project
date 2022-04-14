@@ -13,12 +13,16 @@ class Member(models.Model):
         return self.fname
 
 class LoginInfo(models.Model):
+    M_TYPE = (
+        (1, 1),
+        (2, 2),
+    )
     member_id = models.OneToOneField(Member,
         null = True, blank = True,
         on_delete = models.SET_NULL)
     username = models.CharField(max_length=31)
     password = models.CharField(max_length=31)
-
+    memType = models.IntegerField(choices = M_TYPE, default = 1)
     def __str__(self):
         return self.username
 

@@ -9,7 +9,7 @@ class memberSerializer(serializers.ModelSerializer):
 class loginSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.LoginInfo
-        fields = ('member_id', 'username', 'password')
+        fields = ('member_id', 'username', 'password', 'mem_type')
 
 class prSerializer(serializers.ModelSerializer):
     class Meta:
