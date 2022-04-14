@@ -1,22 +1,23 @@
+from django.http import Http404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import invoiceSerializer, itemSerializer, loginSerializer
-from .serializers import prSerializer
-from .models import Invoice, LoginInfo, PurchaseRequest, Item
-from db.api import serializers
+from .serializers import invoiceSerializer, itemSerializer, loginSerializer, prSerializer
+from .models import Invoice, LoginInfo, Member, PurchaseRequest, Item
+#from db.api import serializers
 
 # Create your views here.
 
 # Endpoint 1
 class getLogin(APIView):
-    def get(self, request, format=None):
-        credentials = LoginInfo.objects.all()
+    
+    def get(self, request, uname, format=None):
+        credentials = LoginInfo.objects.filter(username = uname)
         serializer = loginSerializer(credentials, many = True)
         return Response(serializer.data)
 
 # Endpoint 2 and endpoint 8
-class allpurchaseReuqest(APIView):
+class allpurchaseRequest(APIView):
     def get(self, request, format = None):
         purchaseCredentials = PurchaseRequest.objects.all()
         serializer = prSerializer(purchaseCredentials, many =True)
@@ -32,19 +33,22 @@ class allpurchaseReuqest(APIView):
 
 
     # def put
-
-# This is for endpoint 3
+# endpoint 3
 
 class userPurchaseRequest(APIView):
-    def get(self, request, pk, format = None):
-        user = PurchaseRequest.objects.get(pk=pk)
-        serializer = prSerializer(user)
+    def get(self, request, u, format = None):
+        user = Member.objects.get(pk=u)
+        theirs = PurchaseRequest.objects.filter(sub_id = user)
+        serializer = prSerializer(theirs)
         return Response(serializer.data)
 
 # This is for endpoint 4
 
-# class UserPurchaseRequestID(APIView):
-#     def get(self, )
+class idPurchaseRequest(APIView):
+    def get(self, request, pk, format = None):
+        specific = PurchaseRequest.objects.get(pk=pk)
+        serializer = prSerializer(specific)
+        return Response(serializer.data)
 
 
 # This is for endpoint 5 and endpoint 9
