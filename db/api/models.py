@@ -60,7 +60,7 @@ class Invoice(models.Model):
     ful_date = models.DateField()
 
     def __str__(self):
-        return self.in_id
+        return str(self.in_id)
 
 class Item(models.Model):
     POSSESION = (
