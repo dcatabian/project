@@ -21,7 +21,7 @@ class LoginInfo(models.Model):
     member_id = models.OneToOneField(Member,
         null = True, blank = True,
         on_delete = models.SET_NULL)
-    username = models.CharField(max_length=31)
+    username = models.CharField(max_length=31, unique=True)
     password = models.CharField(max_length=31)
     memType = models.IntegerField(choices = M_TYPE, default = 1)
     def __str__(self):
