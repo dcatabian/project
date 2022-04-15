@@ -72,6 +72,10 @@ class Item(models.Model):
     name = models.CharField(max_length=255)
     possessed = models.CharField(max_length=255, choices = POSSESION)
     p_by = models.CharField(max_length=255)
+    inv = models.ForeignKey('Invoice',
+        null = True, blank = True,
+        on_delete = models.SET_NULL,
+        related_name = 'linked_invoice')
 
     def __str__(self):
         return self.name
