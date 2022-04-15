@@ -1,0 +1,88 @@
+/* Does not work */
+*{
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+}
+
+input[type = "email"]{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px ;
+}
+
+/* Does not work */
+body{
+    background-color: black;
+}
+
+
+input[type = "password"]{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px ;
+    border-top:0px ;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+}
+
+.card{
+    background: white;
+    width: 270px;
+    margin: 10px;
+    border-radius: 15px;
+
+}
+
+.card-image{
+   
+    height: 170px;
+    margin-bottom: 15px;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+
+}
+
+.pr-pic{
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2835/2835531.png');
+
+}
+.id-pic{
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1254/1254276.png');
+
+}
+
+.sr-pic{
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2649/2649223.png');
+
+}
+
+.card h2{
+    padding: 10px;
+}
+
+.card p{
+    padding: 10px;
+}
+
+.card a{
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+}
+
+.card:hover{
+    background-color: rgb(62, 62,62);
+    position: cursor;
+    color: white;
+    transform: scale(1.03);
+
+    transition: all 1s ease;
+}

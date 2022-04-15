@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+        
+        font-family: sans-serif; /* Change your font family */
+    }
+
+    .content-table {
+    border-collapse: collapse;
+    /* margin: 25px 0; */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0; 
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    }
+
+    .content-table th,
+    .content-table td {
+    padding: 12px 15px;
+    }
+
+    .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+    }
+
+    .content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+    }
+        </style>
+    <table class="content-table">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Possessed</th>
+            <th>Possessed By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chair</td>
+            <td>10</td>
+            <td>Yes</td>
+            <td>Derrick</td>
+          </tr>
+          <tr class="active-row">
+            <td>Table</td>
+            <td>12</td>
+            <td>No</td>
+            <td>Godwin</td>
+          </tr>
+          <tr>
+            <td>Computer</td>
+            <td>4</td>
+            <td>Raj</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>Washing Machine</td>
+            <td>2</td>
+            <td>Bill</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+</body>
+</html>

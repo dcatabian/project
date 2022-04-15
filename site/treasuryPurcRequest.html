@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+        
+        font-family: sans-serif; /* Change your font family */
+    }
+
+    .content-table {
+    border-collapse: collapse;
+    /* margin: 25px 0; */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0; 
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    }
+
+    .content-table th,
+    .content-table td {
+    padding: 12px 15px;
+    }
+
+    .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+    }
+
+    .content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+    }
+        </style>
+    <table class="content-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Request ID</th>
+            <th>Request Date</th>
+            <th>Item</th>
+            <th>Estimated Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Godwin</td>
+            <td><a href="index.html">123456</a></td>
+            <td>23-7-22</td>
+            <td>Chair</td>
+            <td>$3500</td>
+          </tr>
+          <tr class="active-row">
+            <td>Table</td>
+            <td>Declined</td>
+            <td>24-8-22</td>
+            <td>27-8-22</td>
+          </tr>
+          <tr>
+            <td>Computer</td>
+            <td>Pending</td>
+            <td>23-8-22</td>
+            <td>Will be updated</td>
+          </tr>
+          <tr>
+            <td>Washing Machine</td>
+            <td>Approved</td>
+            <td>23-7-22</td>
+            <td>26-7-22</td>
+          </tr>
+          <tr>
+            <td>Computer</td>
+            <td>Pending</td>
+            <td>23-8-22</td>
+            <td>Will be updated</td>
+          </tr>
+          <tr>
+            <td>Computer</td>
+            <td>Pending</td>
+            <td>23-8-22</td>
+            <td>Will be updated</td>
+          </tr>
+          <tr>
+            <td>Computer</td>
+            <td>Pending</td>
+            <td>23-8-22</td>
+            <td>Will be updated</td>
+          </tr>
+        </tbody>
+      </table>
+</body>
+</html>
