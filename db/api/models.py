@@ -8,6 +8,7 @@ class Member(models.Model):
     lname = models.CharField(max_length=31)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
+    leave_date = models.DateField(null = True, blank = True)
 
     def __str__(self):
         return self.fname
@@ -55,9 +56,9 @@ class Invoice(models.Model):
     approved_pr = models.OneToOneField(PurchaseRequest,
         null = True, blank = True,
         on_delete = models.SET_NULL)
-    app_date = models.DateField()
+    app_date = models.DateField(auto_now_add=True, null=True)
     ful_Status = models.CharField(max_length = 255, choices = STATUS)
-    ful_date = models.DateField()
+    ful_date = models.DateField(null = True, blank = True)
 
     def __str__(self):
         return str(self.in_id)
