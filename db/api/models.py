@@ -71,6 +71,7 @@ class Item(models.Model):
     )
     it_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
+    quantity = models.IntegerField()
     possessed = models.CharField(max_length=255, choices = POSSESION)
     p_by = models.CharField(max_length=255)
     inv = models.ForeignKey('Invoice',
