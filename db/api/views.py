@@ -13,7 +13,7 @@ from .models import Invoice, LoginInfo, Member, PurchaseRequest, Item
 class getLogin(APIView):
     def try_getting(self, uname):
         try:
-            return LoginInfo.objects.get(username = uname)
+            return LoginInfo.objects.filter(username = uname)
         except PurchaseRequest.DoesNotExist:
             raise Http404
 
@@ -112,6 +112,11 @@ class updateInvoice(APIView):
         except Invoice.DoesNotExist:
             raise Http404
 
+    def get(self, request, pk, format = None):
+        specific = self.try_getting(pk)
+        serializer = invoiceSerializer(specific)
+        return Response(serializer.data)
+
     def put(self, request, pk, format = None):
         toMod = self.try_getting(pk)
         serializer = invoiceSerializer(toMod, data = request.data)
@@ -127,6 +132,11 @@ class updateItem(APIView):
             return Item.objects.get(pk=pk)
         except Item.DoesNotExist:
             raise Http404
+
+    def get(self, request, pk, format = None):
+        specific = self.try_getting(pk)
+        serializer = itemSerializer(specific)
+        return Response(serializer.data)
 
     def put(self, request, pk, format = None):
         toMod = self.try_getting(pk)
